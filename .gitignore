@@ -1,0 +1,4 @@
+terraform.tfstate*
+cassandra-poc-eu-west-1.pem
+.git
+.DS_Store
