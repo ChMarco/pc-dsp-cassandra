@@ -1,3 +1,12 @@
+data "template_file" "user_data" {
+  template = "${file("${path.module}/templates/user-data.tpl")}"
+
+  vars {
+    cassandra_node_number = "${var.cassandra_node_number}"
+    aws_region = "${var.region}"
+  }
+}
+
 resource "aws_instance" "cassandra_0" {
   instance_type = "${var.instance_type}"
   ami = "${var.ami}"
@@ -6,7 +15,7 @@ resource "aws_instance" "cassandra_0" {
   subnet_id = "${aws_subnet.main.id}"
   vpc_security_group_ids = ["${module.cassandra_security_group.security_group_id}", "${aws_security_group.allow_internet_access.id}", "${aws_security_group.allow_all_cassandra_access.id}", "${aws_security_group.allow_all_ssh_access.id}"]
   depends_on = ["aws_internet_gateway.gw"]
-
+  user_data = "${data.template_file.user_data.rendered}"
   tags {
     Name = "${var.user_name}_cassandra_0"
   }

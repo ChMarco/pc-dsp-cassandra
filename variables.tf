@@ -13,6 +13,6 @@ variable "source_cidr_block" {
   type        = "list"
 }
 variable "cassandra_ebs_volume_size" { default = 50 }
-
+variable "cassandra_node_number" { default = 1}
 variable "provider" { default = "eu-west-1"}
 variable "region" { default = "eu-west-1a" }
