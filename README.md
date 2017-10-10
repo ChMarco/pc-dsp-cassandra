@@ -6,6 +6,11 @@ Follow these steps to get a 3 node cassandra cluster up and running.
 
 * Update variables.tf with proper values
 
+* Open a terminall and run ( replace XXX with programmatical key and secret for account):
+  ```
+  export AWS_ACCESS_KEY_ID=XXXXXXXXXXXX \
+  export AWS_SECRET_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXX 
+  ```
 * run
   ```
   terraform get

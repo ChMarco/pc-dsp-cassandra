@@ -46,7 +46,7 @@ resource "aws_instance" "cassandra_2" {
 
 resource "aws_ebs_volume" "cassandra_0" {
   availability_zone = "${var.region}"
-  size = 50
+  size = "${var.cassandra_ebs_volume_size}"
   type = "gp2"
 
   tags {
@@ -56,7 +56,7 @@ resource "aws_ebs_volume" "cassandra_0" {
 
 resource "aws_ebs_volume" "cassandra_1" {
   availability_zone = "${var.region}"
-  size = 50
+  size = "${var.cassandra_ebs_volume_size}"
   type = "gp2"
 
   tags {
@@ -66,7 +66,7 @@ resource "aws_ebs_volume" "cassandra_1" {
 
 resource "aws_ebs_volume" "cassandra_2" {
   availability_zone = "${var.region}"
-  size = 50
+  size = "${var.cassandra_ebs_volume_size}"
   type = "gp2"
 
   tags {

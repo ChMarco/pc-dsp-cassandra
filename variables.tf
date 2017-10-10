@@ -1,8 +1,8 @@
 variable "user_name" { default = "ec2-user" }
-variable "ssh_key_path" { default = "./cassandra-poc-eu-west-1.pem" }
-variable "ssh_key_name" { default = "cassandra-poc-eu-west-1" }
+variable "ssh_key_path" { default = "./cassandra-big-data-eu-west-1.pem" }
+variable "ssh_key_name" { default = "cassandra-big-data-eu-west-1" }
 variable "cidr" { default = "10.2.4.0/23" }
-variable "instance_type" { default = "t2.small" }
+variable "instance_type" { default = "t2.medium" }
 variable "security_group_name" { default = "terraform" }
 variable "ami" { default = "ami-785db401" }
 # default source_cidr_block is the main subnet
@@ -12,6 +12,7 @@ variable "source_cidr_block" {
   default     = ["10.2.5.128/25"]
   type        = "list"
 }
+variable "cassandra_ebs_volume_size" { default = 50 }
 
 variable "provider" { default = "eu-west-1"}
 variable "region" { default = "eu-west-1a" }
